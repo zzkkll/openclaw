@@ -167,6 +167,9 @@ type CreateQuickReplyItems = typeof import("../../line/send.js").createQuickRepl
 type BuildTemplateMessageFromPayload =
   typeof import("../../line/template-messages.js").buildTemplateMessageFromPayload;
 type MonitorLineProvider = typeof import("../../line/monitor.js").monitorLineProvider;
+// Feishu channel types
+type SendMessageFeishu = typeof import("../../feishu/send.js").sendMessageFeishu;
+type MonitorFeishuProvider = typeof import("../../feishu/monitor.js").monitorFeishuProvider;
 
 export type RuntimeLogger = {
   debug?: (message: string) => void;
@@ -346,6 +349,10 @@ export type PluginRuntime = {
       createQuickReplyItems: CreateQuickReplyItems;
       buildTemplateMessageFromPayload: BuildTemplateMessageFromPayload;
       monitorLineProvider: MonitorLineProvider;
+    };
+    feishu: {
+      sendMessageFeishu: SendMessageFeishu;
+      monitorFeishuProvider: MonitorFeishuProvider;
     };
   };
   logging: {

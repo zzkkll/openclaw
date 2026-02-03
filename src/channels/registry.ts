@@ -10,6 +10,7 @@ export const CHAT_CHANNEL_ORDER = [
   "discord",
   "googlechat",
   "slack",
+  "feishu",
   "signal",
   "imessage",
 ] as const;
@@ -77,6 +78,16 @@ const CHAT_CHANNEL_META: Record<ChatChannelId, ChannelMeta> = {
     docsLabel: "slack",
     blurb: "supported (Socket Mode).",
     systemImage: "number",
+  },
+  feishu: {
+    id: "feishu",
+    label: "Feishu",
+    selectionLabel: "Feishu (Open Platform)",
+    detailLabel: "Feishu Bot",
+    docsPath: "/channels/feishu",
+    docsLabel: "feishu",
+    blurb: "Feishu bot integration (webhook events).",
+    systemImage: "ellipsis.bubble",
   },
   signal: {
     id: "signal",

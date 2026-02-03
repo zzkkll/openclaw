@@ -273,6 +273,27 @@ const DOCKS: Record<ChatChannelId, ChannelDock> = {
       },
     },
   },
+  feishu: {
+    id: "feishu",
+    capabilities: {
+      chatTypes: ["direct", "group"],
+      media: true,
+      reactions: false, // Feishu supports reactions but we haven't implemented adapter yet
+    },
+    outbound: { textChunkLimit: 4000 },
+    config: {
+      resolveAllowFrom: () => [], // TODO: implementations
+      formatAllowFrom: () => [],
+    },
+    threading: {
+      resolveReplyToMode: () => "off", // Todo
+      buildToolContext: ({ context, hasRepliedRef }) => ({
+        currentChannelId: context.To?.trim() || undefined,
+        currentThreadTs: context.ReplyToId,
+        hasRepliedRef,
+      }),
+    },
+  },
   slack: {
     id: "slack",
     capabilities: {
